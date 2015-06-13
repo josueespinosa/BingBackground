@@ -70,7 +70,7 @@ namespace BingBackground
             }
         }
         /// <summary>
-        /// Finds the resolution extension for the Bing Image of the Day URL
+        /// Gets the resolution extension for the Bing Image of the Day URL
         /// </summary>
         /// <param name="URL">The base URL</param>
         /// <returns>The resolution extension for the URL</returns>
@@ -105,7 +105,7 @@ namespace BingBackground
             return Image.FromStream(stream);
         }
         /// <summary>
-        /// Finds the path to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp
+        /// Gets the path to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp
         /// </summary>
         /// <returns>The path to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp</returns>
         private static string GetBackgroundImagePath()
