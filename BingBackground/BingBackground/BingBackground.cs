@@ -16,7 +16,7 @@ namespace BingBackground
             string urlBase = GetBackgroundUrlBase();
             Image background = DownloadBackground(urlBase + GetResolutionExtension(urlBase));
             SaveBackground(background);
-            SetBackground(background, PicturePosition.Fill);
+            SetBackground(PicturePosition.Fill);
         }
         /// <summary>
         /// Downloads the JSON data for the Bing Image of the Day
@@ -150,9 +150,8 @@ namespace BingBackground
         /// <summary>
         /// Sets the Bing Image of the Day as the desktop background
         /// </summary>
-        /// <param name="background">The background to set</param>
         /// <param name="style">The PicturePosition to use</param>
-        private static void SetBackground(Image background, PicturePosition style)
+        private static void SetBackground(PicturePosition style)
         {
             Console.WriteLine("Setting background...");
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(Path.Combine("Control Panel", "Desktop"), true))
