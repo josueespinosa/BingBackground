@@ -162,7 +162,12 @@ namespace BingBackground {
 			const int SendWindowsIniChange = 2;
 			NativeMethods.SystemParametersInfo(SetDesktopBackground, 0, GetBackgroundImagePath(), UpdateIniFile | SendWindowsIniChange);
 		}
-
+		/// <summary>
+		/// Loads config variable from program's configuration file
+		/// </summary>
+		/// <param name="key">The key to load the value of</param>
+		/// <param name="def">The default value if key not found or empty</param>
+		/// <returns>Either value of the key on sucess or default value</returns>
 		private static string GetConfigValue(string key, string def) {
 			string val;
 			return (String.IsNullOrEmpty(val = ConfigurationManager.AppSettings[key])) ? def : val;
