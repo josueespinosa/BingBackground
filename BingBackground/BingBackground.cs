@@ -24,7 +24,7 @@ namespace BingBackground {
 		private static dynamic DownloadJson() {
 			using (WebClient webClient = new WebClient()) {
 				Console.WriteLine("Downloading JSON...");
-				string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetCountryCode());
+				string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetConfigValue("CountryCode", "en-US"));
 				return JsonConvert.DeserializeObject<dynamic>(jsonString);
 			}
 		}
@@ -66,8 +66,8 @@ namespace BingBackground {
 		/// <returns>The resolution extension for the URL</returns>
 		private static string GetResolutionExtension(string url) {
 			Rectangle resolution = Screen.PrimaryScreen.Bounds;
-			string widthByHeight = resolution.Width + "x" + resolution.Height;
-			string potentialExtension = "_" + widthByHeight + ".jpg";
+			string widthByHeight = GetConfigValue("ForceResolution", resolution.Width + "x" + resolution.Height);	
+			string potentialExtension = "_" + widthByHeight + ".jpg";			
 			if (WebsiteExists(url + potentialExtension)) {
 				Console.WriteLine("Background for " + widthByHeight + " found.");
 				return potentialExtension;
@@ -163,9 +163,9 @@ namespace BingBackground {
 			NativeMethods.SystemParametersInfo(SetDesktopBackground, 0, GetBackgroundImagePath(), UpdateIniFile | SendWindowsIniChange);
 		}
 
-		private static string GetCountryCode() {
-			string cc;
-			return (String.IsNullOrEmpty(cc = ConfigurationManager.AppSettings["CountryCode"])) ? "en-US" : cc;
+		private static string GetConfigValue(string key, string def) {
+			string value;
+			return (String.IsNullOrEmpty(value = ConfigurationManager.AppSettings[key])) ? def : value;
 		}
 	}
 }
