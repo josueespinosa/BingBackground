@@ -66,8 +66,8 @@ namespace BingBackground {
 		/// <returns>The resolution extension for the URL</returns>
 		private static string GetResolutionExtension(string url) {
 			Rectangle resolution = Screen.PrimaryScreen.Bounds;
-			string widthByHeight = GetConfigValue("ForceResolution", resolution.Width + "x" + resolution.Height);	
-			string potentialExtension = "_" + widthByHeight + ".jpg";			
+			string widthByHeight = GetConfigValue("ForceResolution", resolution.Width + "x" + resolution.Height);
+			string potentialExtension = "_" + widthByHeight + ".jpg";
 			if (WebsiteExists(url + potentialExtension)) {
 				Console.WriteLine("Background for " + widthByHeight + " found.");
 				return potentialExtension;
@@ -164,8 +164,8 @@ namespace BingBackground {
 		}
 
 		private static string GetConfigValue(string key, string def) {
-			string value;
-			return (String.IsNullOrEmpty(value = ConfigurationManager.AppSettings[key])) ? def : value;
+			string val;
+			return (String.IsNullOrEmpty(val = ConfigurationManager.AppSettings[key])) ? def : val;
 		}
 	}
 }
