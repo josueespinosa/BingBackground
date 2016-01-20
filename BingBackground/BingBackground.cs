@@ -11,6 +11,7 @@ using System.Windows.Forms;
 namespace BingBackground {
 	class BingBackground {
 		private static void Main(string[] args) {
+			if (!InternetConnection()) { ExitApp(1); return; }
 			dynamic jsonObject = DownloadJson();
 			string urlBase = GetBackgroundUrlBase(jsonObject);
 			Image background = DownloadBackground(urlBase + GetResolutionExtension(urlBase));
@@ -18,13 +19,41 @@ namespace BingBackground {
 			SetBackground(PicturePosition.Fill);
 		}
 		/// <summary>
+		/// Properly exits the application
+		/// </summary>
+		/// <param name="code">Return value used on exit</param>
+		private static void ExitApp(byte code = 0) {
+			if (System.Windows.Forms.Application.MessageLoop) {
+				// WinForms app
+				System.Windows.Forms.Application.Exit();
+			} else {
+				// Console app
+				System.Environment.Exit(code);
+			}
+		}
+		/// <summary>
+		/// Checks if we have an internet connection
+		/// </summary>
+		/// <returns>Whether or not we have an internet connection</returns>
+		private static bool InternetConnection() {
+			try {
+				using (WebClient client = new WebClient()) {
+					using (Stream stream = client.OpenRead("https://www.bing.com")) {
+						return true;
+					}
+				}
+			} catch {
+				return false;
+			}
+		}
+		/// <summary>
 		/// Downloads the JSON data for the Bing Image of the Day
 		/// </summary>
 		/// <returns>JSON data for the Bing Image of the Day</returns>
 		private static dynamic DownloadJson() {
-			using (WebClient webClient = new WebClient()) {
+			using (WebClient client = new WebClient()) {
 				Console.WriteLine("Downloading JSON...");
-				string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetConfigValue("CountryCode", "en-US"));
+				string jsonString = client.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetConfigValue("CountryCode", "en-US"));
 				return JsonConvert.DeserializeObject<dynamic>(jsonString);
 			}
 		}
@@ -39,8 +68,7 @@ namespace BingBackground {
 		/// Gets the title for the Bing Image of the Day
 		/// </summary>
 		/// <returns>Title of the Bing Image of the Day</returns>
-		private static string GetBackgroundTitle() {
-			dynamic jsonObject = DownloadJson();
+		private static string GetBackgroundTitle(dynamic jsonObject) {
 			string copyrightText = jsonObject.images[0].copyright;
 			return copyrightText.Substring(0, copyrightText.IndexOf(" ("));
 		}
