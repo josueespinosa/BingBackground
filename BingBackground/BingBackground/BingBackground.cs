@@ -13,49 +13,7 @@ namespace BingBackground {
             string urlBase = GetBackgroundUrlBase();
             Image background = DownloadBackground(urlBase + GetResolutionExtension(urlBase));
             SaveBackground(background);
-            SetBackground(PicturePosition.Fill);
-        }
-
-        /// <summary>
-        /// Return PicturePosition enum from config
-        /// </summary>
-        /// <returns></returns>
-        private static PicturePosition GetPosition()
-        {
-            PicturePosition pos = PicturePosition.Fit;
-            switch (Properties.Settings.Default.Position)
-            {
-                case "Center":
-                    pos = PicturePosition.Center;
-                    break;
-                case "Fit":
-                    pos = PicturePosition.Fit;
-                    break;
-                case "Fill":
-                    pos = PicturePosition.Fill;
-                    break;
-                case "Stretch":
-                    pos = PicturePosition.Stretch;
-                    break;
-                case "Tile":
-                    pos = PicturePosition.Tile;
-                    break;
-            }
-            return pos;
-        }
-
-        /// <summary>
-        /// Set http proxy from application configuration
-        /// </summary>
-        private static void SetProxy()
-        {
-            string proxyUrl = Properties.Settings.Default.Proxy;
-            if (proxyUrl.Length > 0)
-            {
-                var webProxy = new WebProxy(proxyUrl, true);
-                webProxy.Credentials = CredentialCache.DefaultCredentials;
-                WebRequest.DefaultWebProxy = webProxy;
-            }
+            SetBackground(GetPosition());
         }
 
         /// <summary>
@@ -119,6 +77,19 @@ namespace BingBackground {
                 return "_1920x1080.jpg";
             }
         }
+
+        /// <summary>
+        /// Set http proxy from application configuration
+        /// </summary>
+        private static void SetProxy() {
+            string proxyUrl = Properties.Settings.Default.Proxy;
+            if (proxyUrl.Length > 0) {
+                var webProxy = new WebProxy(proxyUrl, true);
+                webProxy.Credentials = CredentialCache.DefaultCredentials;
+                WebRequest.DefaultWebProxy = webProxy;
+            }
+        }
+
         /// <summary>
         /// Downloads the Bing Image of the Day
         /// </summary>
@@ -171,6 +142,33 @@ namespace BingBackground {
             [DllImport("user32.dll", CharSet = CharSet.Auto)]
             internal static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
         }
+
+        /// <summary>
+        /// Return PicturePosition enum from config
+        /// </summary>
+        /// <returns></returns>
+        private static PicturePosition GetPosition() {
+            PicturePosition pos = PicturePosition.Fit;
+            switch (Properties.Settings.Default.Position) {
+                case "Center":
+                    pos = PicturePosition.Center;
+                    break;
+                case "Fit":
+                    pos = PicturePosition.Fit;
+                    break;
+                case "Fill":
+                    pos = PicturePosition.Fill;
+                    break;
+                case "Stretch":
+                    pos = PicturePosition.Stretch;
+                    break;
+                case "Tile":
+                    pos = PicturePosition.Tile;
+                    break;
+            }
+            return pos;
+        }
+
         /// <summary>
         /// Sets the Bing Image of the Day as the desktop background
         /// </summary>
