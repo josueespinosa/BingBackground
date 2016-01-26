@@ -8,7 +8,9 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 namespace BingBackground {
+
     class BingBackground {
+
         private static void Main(string[] args) {
             string urlBase = GetBackgroundUrlBase();
             Image background = DownloadBackground(urlBase + GetResolutionExtension(urlBase));
@@ -16,10 +18,6 @@ namespace BingBackground {
             SetBackground(GetPosition());
         }
 
-        /// <summary>
-        /// Downloads the JSON data for the Bing Image of the Day
-        /// </summary>
-        /// <returns>JSON data for the Bing Image of the Day</returns>
         private static dynamic DownloadJson() {
             using (WebClient webClient = new WebClient()) {
                 Console.WriteLine("Downloading JSON...");
@@ -27,28 +25,18 @@ namespace BingBackground {
                 return JsonConvert.DeserializeObject<dynamic>(jsonString);
             }
         }
-        /// <summary>
-        /// Gets the base URL for the Bing Image of the Day
-        /// </summary>
-        /// <returns>Base URL of the Bing Image of the Day</returns>
+
         private static string GetBackgroundUrlBase() {
             dynamic jsonObject = DownloadJson();
             return "https://www.bing.com" + jsonObject.images[0].urlbase;
         }
-        /// <summary>
-        /// Gets the title for the Bing Image of the Day
-        /// </summary>
-        /// <returns>Title of the Bing Image of the Day</returns>
+
         private static string GetBackgroundTitle() {
             dynamic jsonObject = DownloadJson();
             string copyrightText = jsonObject.images[0].copyright;
             return copyrightText.Substring(0, copyrightText.IndexOf(" ("));
         }
-        /// <summary>
-        /// Checks to see if website at URL exists
-        /// </summary>
-        /// <param name="URL">The URL to check for existence</param>
-        /// <returns>Whether or not website exists at URL</returns>
+
         private static bool WebsiteExists(string url) {
             try {
                 WebRequest request = WebRequest.Create(url);
@@ -59,11 +47,7 @@ namespace BingBackground {
                 return false;
             }
         }
-        /// <summary>
-        /// Gets the resolution extension for the Bing Image of the Day URL
-        /// </summary>
-        /// <param name="URL">The base URL</param>
-        /// <returns>The resolution extension for the URL</returns>
+
         private static string GetResolutionExtension(string url) {
             Rectangle resolution = Screen.PrimaryScreen.Bounds;
             string widthByHeight = resolution.Width + "x" + resolution.Height;
@@ -78,9 +62,6 @@ namespace BingBackground {
             }
         }
 
-        /// <summary>
-        /// Set http proxy from application configuration
-        /// </summary>
         private static void SetProxy() {
             string proxyUrl = Properties.Settings.Default.Proxy;
             if (proxyUrl.Length > 0) {
@@ -90,11 +71,6 @@ namespace BingBackground {
             }
         }
 
-        /// <summary>
-        /// Downloads the Bing Image of the Day
-        /// </summary>
-        /// <param name="URL">The URL of the Bing Image of the Day</param>
-        /// <returns>The Bing Image of the Day</returns>
         private static Image DownloadBackground(string url) {
             Console.WriteLine("Downloading background...");
             SetProxy();
@@ -103,76 +79,53 @@ namespace BingBackground {
             Stream stream = reponse.GetResponseStream();
             return Image.FromStream(stream);
         }
-        /// <summary>
-        /// Gets the path to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp
-        /// </summary>
-        /// <returns>The path to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp</returns>
+
         private static string GetBackgroundImagePath() {
             string directory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyPictures), "Bing Backgrounds", DateTime.Now.Year.ToString());
             Directory.CreateDirectory(directory);
             return Path.Combine(directory, DateTime.Now.ToString("M-d-yyyy") + ".bmp");
         }
-        /// <summary>
-        /// Saves the Bing Image of the Day to My Pictures/Bing Backgrounds/yyyy/M-d-yyyy.bmp
-        /// </summary>
-        /// <param name="background">The background image to save</param>
+
         private static void SaveBackground(Image background) {
             Console.WriteLine("Saving background...");
             background.Save(GetBackgroundImagePath(), System.Drawing.Imaging.ImageFormat.Bmp);
         }
-        /// <summary>
-        /// Different types of PicturePositions to set backgrounds
-        /// </summary>
+
         private enum PicturePosition {
-            /// <summary>Tiles the picture on the screen</summary>
             Tile,
-            /// <summary>Centers the picture on the screen</summary>
             Center,
-            /// <summary>Stretches the picture to fit the screen</summary>
             Stretch,
-            /// <summary>Fits the picture to the screen</summary>
             Fit,
-            /// <summary>Crops the picture to fill the screen</summary>
             Fill
         }
-        /// <summary>
-        /// Methods that use platform invocation services
-        /// </summary>
+
+        private static PicturePosition GetPosition() {
+            PicturePosition position = PicturePosition.Fit;
+            switch (Properties.Settings.Default.Position) {
+                case "Tile":
+                    position = PicturePosition.Tile;
+                    break;
+                case "Center":
+                    position = PicturePosition.Center;
+                    break;
+                case "Stretch":
+                    position = PicturePosition.Stretch;
+                    break;
+                case "Fit":
+                    position = PicturePosition.Fit;
+                    break;
+                case "Fill":
+                    position = PicturePosition.Fill;
+                    break;
+            }
+            return position;
+        }
+
         internal sealed class NativeMethods {
             [DllImport("user32.dll", CharSet = CharSet.Auto)]
             internal static extern int SystemParametersInfo(int uAction, int uParam, string lpvParam, int fuWinIni);
         }
 
-        /// <summary>
-        /// Return PicturePosition enum from config
-        /// </summary>
-        /// <returns></returns>
-        private static PicturePosition GetPosition() {
-            PicturePosition pos = PicturePosition.Fit;
-            switch (Properties.Settings.Default.Position) {
-                case "Center":
-                    pos = PicturePosition.Center;
-                    break;
-                case "Fit":
-                    pos = PicturePosition.Fit;
-                    break;
-                case "Fill":
-                    pos = PicturePosition.Fill;
-                    break;
-                case "Stretch":
-                    pos = PicturePosition.Stretch;
-                    break;
-                case "Tile":
-                    pos = PicturePosition.Tile;
-                    break;
-            }
-            return pos;
-        }
-
-        /// <summary>
-        /// Sets the Bing Image of the Day as the desktop background
-        /// </summary>
-        /// <param name="style">The PicturePosition to use</param>
         private static void SetBackground(PicturePosition style) {
             Console.WriteLine("Setting background...");
             using (RegistryKey key = Registry.CurrentUser.OpenSubKey(Path.Combine("Control Panel", "Desktop"), true)) {
@@ -204,5 +157,7 @@ namespace BingBackground {
             const int SendWindowsIniChange = 2;
             NativeMethods.SystemParametersInfo(SetDesktopBackground, 0, GetBackgroundImagePath(), UpdateIniFile | SendWindowsIniChange);
         }
+
     }
+
 }
