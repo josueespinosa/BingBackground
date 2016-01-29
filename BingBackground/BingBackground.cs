@@ -10,6 +10,8 @@ using System.Windows.Forms;
 
 namespace BingBackground {
 	class BingBackground {
+		private const string BING_URL = "https://www.bing.com";
+		
 		private static void Main(string[] args) {
 			if (!InternetConnection()) { ExitApp(1); return; }
 			dynamic jsonObject = DownloadJson();
@@ -38,7 +40,7 @@ namespace BingBackground {
 		private static bool InternetConnection() {
 			try {
 				using (WebClient client = new WebClient()) {
-					using (Stream stream = client.OpenRead("https://www.bing.com")) {
+					using (Stream stream = client.OpenRead(BING_URL)) {
 						return true;
 					}
 				}
@@ -53,7 +55,7 @@ namespace BingBackground {
 		private static dynamic DownloadJson() {
 			using (WebClient client = new WebClient()) {
 				Console.WriteLine("Downloading JSON...");
-				string jsonString = client.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetConfigValue("CountryCode", "en-US"));
+				string jsonString = client.DownloadString(BING_URL + "/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=" + GetConfigValue("CountryCode", "en-US"));
 				return JsonConvert.DeserializeObject<dynamic>(jsonString);
 			}
 		}
@@ -62,7 +64,7 @@ namespace BingBackground {
 		/// </summary>
 		/// <returns>Base URL of the Bing Image of the Day</returns>
 		private static string GetBackgroundUrlBase(dynamic jsonObject) {
-			return "https://www.bing.com" + jsonObject.images[0].urlbase;
+			return BING_URL + jsonObject.images[0].urlbase;
 		}
 		/// <summary>
 		/// Gets the title for the Bing Image of the Day
