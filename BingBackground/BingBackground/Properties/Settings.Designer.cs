@@ -46,5 +46,41 @@ namespace BingBackground.Properties {
                 this["Position"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("TopRight")]
+        public string TitlePosition {
+            get {
+                return ((string)(this["TitlePosition"]));
+            }
+            set {
+                this["TitlePosition"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Verdana")]
+        public string TitleFont {
+            get {
+                return ((string)(this["TitleFont"]));
+            }
+            set {
+                this["TitleFont"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("12")]
+        public int TitleFontSize {
+            get {
+                return ((int)(this["TitleFontSize"]));
+            }
+            set {
+                this["TitleFontSize"] = value;
+            }
+        }
     }
 }
