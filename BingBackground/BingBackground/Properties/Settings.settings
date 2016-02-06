@@ -8,5 +8,14 @@
     <Setting Name="Position" Type="System.String" Scope="User">
       <Value Profile="(Default)">Fill</Value>
     </Setting>
+    <Setting Name="TitlePosition" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TopRight</Value>
+    </Setting>
+    <Setting Name="TitleFont" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Verdana</Value>
+    </Setting>
+    <Setting Name="TitleFontSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">12</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
