@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <HideWindow>true</HideWindow>
+  <DownloadImageFromFirstMarketOnly>true</DownloadImageFromFirstMarketOnly>
+  <Markets>
+    <Market MarketId="en-IN" MarketName="India" />
+    <Market MarketId="es-AR" MarketName="Argentina" />
+    <Market MarketId="en-AU" MarketName="Australia" />
+    <Market MarketId="de-AT" MarketName="Austria" />
+    <Market MarketId="nl-BE" MarketName="Belgium - Dutch" />
+    <Market MarketId="fr-BE" MarketName="Belgium - French" />
+    <Market MarketId="pt-BR" MarketName="Brazil" />
+    <Market MarketId="en-CA" MarketName="Canada - English" />
+    <Market MarketId="fr-CA" MarketName="Canada - French" />
+    <Market MarketId="fr-FR" MarketName="France" />
+    <Market MarketId="de-DE" MarketName="Germany" />
+    <Market MarketId="zh-HK" MarketName="Hong Kong S.A.R." />
+    <Market MarketId="en-ID" MarketName="Indonesia" />
+    <Market MarketId="it-IT" MarketName="Italy" />
+    <Market MarketId="ja-JP" MarketName="Japan" />
+    <Market MarketId="ko-KR" MarketName="Korea" />
+    <Market MarketId="en-MY" MarketName="Malaysia" />
+    <Market MarketId="es-MX" MarketName="Mexico" />
+    <Market MarketId="nl-NL" MarketName="Netherlands" />
+    <Market MarketId="nb-NO" MarketName="Norway" />
+    <Market MarketId="zh-CN" MarketName="People's Republic of China" />
+    <Market MarketId="pl-PL" MarketName="Poland" />
+    <Market MarketId="ru-RU" MarketName="Russia" />
+    <Market MarketId="ar-SA" MarketName="Saudi Arabia" />
+    <Market MarketId="en-ZA" MarketName="South Africa" />
+    <Market MarketId="es-ES" MarketName="Spain" />
+    <Market MarketId="sv-SE" MarketName="Sweden" />
+    <Market MarketId="fr-CH" MarketName="Switzerland - French" />
+    <Market MarketId="de-CH" MarketName="Switzerland - German" />
+    <Market MarketId="zh-TW" MarketName="Taiwan" />
+    <Market MarketId="tr-TR" MarketName="Turkey" />
+    <Market MarketId="en-GB" MarketName="United Kingdom" />
+    <Market MarketId="en-US" MarketName="United States - English" />
+    <Market MarketId="es-US" MarketName="United States - Spanish" />
+  </Markets>
+</Settings>
