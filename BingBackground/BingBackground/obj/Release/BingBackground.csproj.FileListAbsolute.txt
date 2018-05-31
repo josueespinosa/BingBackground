@@ -19,3 +19,12 @@ C:\Users\Josue\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin
 C:\Users\Josue\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.pdb
 C:\Users\Josue\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.dll
 C:\Users\Josue\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.xml
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.exe.config
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.exe
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.pdb
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.dll
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.xml
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csproj.CoreCompileInputs.cache
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csproj.CopyComplete
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.exe
+D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.pdb

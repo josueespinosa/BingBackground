@@ -21,6 +21,7 @@ namespace BingBackground {
         private static dynamic DownloadJson() {
             using (WebClient webClient = new WebClient()) {
                 Console.WriteLine("Downloading JSON...");
+                webClient.Encoding = System.Text.Encoding.UTF8;
                 string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US");
                 return JsonConvert.DeserializeObject<dynamic>(jsonString);
             }
