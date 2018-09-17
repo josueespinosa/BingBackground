@@ -31,3 +31,13 @@ D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\
 D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.csproj.CopyComplete
 D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.exe
 D:\Bill\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.pdb
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Debug\BingBackground.exe.config
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Debug\BingBackground.exe
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Debug\BingBackground.pdb
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.csprojAssemblyReference.cache
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.csproj.CoreCompileInputs.cache
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.csproj.CopyComplete
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.exe
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Debug\BingBackground.pdb
