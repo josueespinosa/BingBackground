@@ -37,3 +37,4 @@ C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\Bing
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csproj.CopyComplete
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.exe
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.pdb
+C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csprojAssemblyReference.cache

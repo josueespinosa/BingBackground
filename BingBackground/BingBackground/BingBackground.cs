@@ -22,7 +22,7 @@ namespace BingBackground {
             using (WebClient webClient = new WebClient()) {
                 Console.WriteLine("Downloading JSON...");
                 webClient.Encoding = System.Text.Encoding.UTF8;
-                string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-US");
+                string jsonString = webClient.DownloadString("https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&mkt=en-UK");
                 return JsonConvert.DeserializeObject<dynamic>(jsonString);
             }
         }
