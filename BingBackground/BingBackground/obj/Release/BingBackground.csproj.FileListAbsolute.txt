@@ -38,3 +38,12 @@ C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\Bing
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.exe
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.pdb
 C:\Users\Bill - Surface Book\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csprojAssemblyReference.cache
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.exe.config
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.exe
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\BingBackground.pdb
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.dll
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\bin\Release\Newtonsoft.Json.xml
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csproj.CoreCompileInputs.cache
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.csproj.CopyComplete
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.exe
+C:\Users\zhang\Documents\GitHub\BingBackground\BingBackground\BingBackground\obj\Release\BingBackground.pdb
